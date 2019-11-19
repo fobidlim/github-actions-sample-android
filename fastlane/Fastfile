@@ -1,0 +1,29 @@
+# More documentation about how to customize your build
+# can be found here:
+# https://docs.fastlane.tools
+fastlane_version "2.68.0"
+
+# This value helps us track success metrics for Fastfiles
+# we automatically generate. Feel free to remove this line
+# once you get things running smoothly!
+generated_fastfile_id "dafc04e3-877d-4b0e-8312-c6ebff55acfb"
+
+default_platform :android
+
+platform :android do
+
+  desc "Runs all the tests"
+  lane :test do
+    gradle(task: "test")
+  end
+
+  desc "Fastlane debug"
+  lane :debug do
+    gradle(task: "clean assembleDebug")
+  end
+
+  desc "Fastlane release"
+  lane :release do
+    gradle(task: "clean assembleRelease")
+  end
+end
